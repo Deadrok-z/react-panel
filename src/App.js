@@ -42,6 +42,7 @@ if (questionIndex < questions.length) {
         <QuestionButtons questions={[...questions]} setQuestionIndex={setQuestionIndex}/>
         <div className='d-flex flex-column'>
           <h1 className='d-flex justify-content-center'>Финиш</h1>
+        <h2 className='d-flex justify-content-center'>Ваш процент успеха {Math.round(score/questions.length*100)}%</h2>
           <div className='d-flex justify-content-center my-4'>
             <button className='cstButton' type="button" onClick={restart}>
               повторить
