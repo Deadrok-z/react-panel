@@ -18,6 +18,9 @@ export default function App() {
     e.preventDefault();
     if (answer === questions[questionIndex].rightAnswer) {
       setScore((score) => score + 1);
+      document.getElementsByClassName('element')[questionIndex].style = "background: green";
+    } else {
+      document.getElementsByClassName('element')[questionIndex].style = "background: red";
     }
     if (questionIndex < questions.length) {
       setQuestionIndex((i) => i + 1);
