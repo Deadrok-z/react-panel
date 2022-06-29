@@ -1,5 +1,8 @@
-.h1-name{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cstButton {
+    background: #31d2f2;
+    color:black;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: right;
+    max-width: 150px;
 }

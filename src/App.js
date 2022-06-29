@@ -26,22 +26,27 @@ export default function App() {
 if (questionIndex < questions.length) {
     return (
       <div>
-        <h1 className='h1-name'>Викторина</h1>
+        <h1 className='d-flex justify-content-center'>Викторина</h1>
         <QuestionButtons questions={[...questions]} setQuestionIndex={setQuestionIndex}/>
         <Question arrProps={[questions,questionIndex,setAnswer,answer,submit]} />
-        <p>score: {score}</p>
+        <p className='d-flex justify-content-center border border-dark py-2 bg-white'>счет: {score} / {questions.length}</p>
       </div>
     );
   } else {
     return (
-      <form>
-        <div v-else>
-          <button type="button" onClick={restart}>
-            restart
-          </button>
+      <div>
+        <h1 className='d-flex justify-content-center'>Викторина</h1>
+        <QuestionButtons questions={[...questions]} setQuestionIndex={setQuestionIndex}/>
+        <div className='d-flex flex-column'>
+          <h1 className='d-flex justify-content-center'>Финиш</h1>
+          <div className='d-flex justify-content-center my-4'>
+            <button className='cstButton' type="button" onClick={restart}>
+              повторить
+            </button>
+          </div>
         </div>
-        <p>score: {score}</p>
-      </form>
+        <p className='d-flex justify-content-center border border-dark py-2 bg-white'>счет: {score} / {questions.length}</p>
+      </div>
     );
   }
 }
