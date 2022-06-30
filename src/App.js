@@ -33,12 +33,12 @@ export default function App() {
     if (questionIndex < questions.length) {
       setQuestionIndex((i) => i + 1);
     }
+    setAnswer("");
   };
-
 
   return (
     <div>
-      <h1 className='d-flex justify-content-center'>Викторина</h1>
+      <h1 className='d-flex justify-content-center'>Викторина о рыбалке</h1>
       <QuestionButtons questions={[...questions]} answers={[...answers]} setQuestionIndex={setQuestionIndex} />
       {questionIndex < questions.length 
         ?

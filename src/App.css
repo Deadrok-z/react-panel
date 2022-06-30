@@ -6,3 +6,11 @@
     float: right;
     max-width: 150px;
 }
+.disabledButton{
+    background: #dc3545;
+    color:black;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: right;
+    max-width: 150px;  
+}

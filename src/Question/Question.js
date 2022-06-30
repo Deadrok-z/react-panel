@@ -30,7 +30,7 @@ export default class Question extends React.Component {
                         })}
                     </div>
                     <div>
-                        <button className='cstButton' type="button" onClick={submit}>подтвердить</button>
+                        <button className={answer===''?'disabledButton':'cstButton'} type="button" disabled={answer===''?true:false} onClick={submit}>подтвердить</button>
                     </div>
                 </div>
             </div>
