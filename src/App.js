@@ -6,7 +6,7 @@ import './App.css';
 
 export default function App() {
 
-  const arr = questions.map((elem, index) => {
+  const arr = questions.map((index) => {
     return { index, value: "" }
   })
   const [score, setScore] = useState(0);
@@ -30,19 +30,30 @@ export default function App() {
       temp[questionIndex].value = false
       setAnswers([...temp]);
     }
-    if (questionIndex < questions.length) {
+    if (questionIndex+1 < questions.length) {
       setQuestionIndex((i) => i + 1);
     }
+    if (questionIndex+1 >= questions.length) {
+      setQuestionIndex((i) => i - 1);
+    }
+
     setAnswer("");
   };
+  const finish = answers.reduce(
+    (total, currentValue) => {
+      if (currentValue.value.toString()!=='') {
+        total.push(currentValue.value);
+      }
+      return total;
+    }, []);
 
   return (
     <div>
       <h1 className='d-flex justify-content-center'>Викторина о рыбалке</h1>
-      <QuestionButtons questions={[...questions]} answers={[...answers]} setQuestionIndex={setQuestionIndex} />
-      {questionIndex < questions.length 
+      <QuestionButtons questions={[...questions]} answers={[...answers]} questionIndex={questionIndex} setQuestionIndex={setQuestionIndex} setAnswer={setAnswer} />
+      {finish.length < questions.length 
         ?
-        <Question arrProps={[questions, questionIndex, setAnswer, answer, submit]} />
+        <Question arrProps={[questions, questionIndex, setAnswer, answer, answers, submit]} />
         :
         <div className='d-flex flex-column'>
           <h1 className='d-flex justify-content-center'>Финиш</h1>

@@ -8,7 +8,25 @@ export default class Question extends React.Component {
 
     render() {
         const{arrProps}=this.props;
-        const[questions,questionIndex,setAnswer,answer,submit]= arrProps;
+        const[questions,questionIndex,setAnswer,answer,answers, submit]= arrProps;
+        let dis;
+        if (answer==='') {
+            if (answers[questionIndex].value==='') {
+                dis=true;
+            };
+            if (answers[questionIndex].value!=='') {
+                dis=true;
+            };
+        };
+        if (answer!=='') {
+            if (answers[questionIndex].value==='') {
+                dis=false;
+            };
+            if (answers[questionIndex].value!=='') {
+                dis=true;
+            };
+        };
+        
         return (
             <div className='d-flex justify-content-center my-4'>
                 <div className='bg-white rounded px-4 py-4 border border-dark d-flex flex-column justify-content-center'>
@@ -30,7 +48,7 @@ export default class Question extends React.Component {
                         })}
                     </div>
                     <div>
-                        <button className={answer===''?'disabledButton':'cstButton'} type="button" disabled={answer===''?true:false} onClick={submit}>подтвердить</button>
+                        <button className={dis ?'disabledButton':'cstButton'} type="button" disabled={dis} onClick={submit}>подтвердить</button>
                     </div>
                 </div>
             </div>

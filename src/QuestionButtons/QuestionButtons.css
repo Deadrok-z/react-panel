@@ -17,11 +17,15 @@
     border: 1px solid black;
     border-radius: 5px;
     background: #31d2f2;
-    color:black;
-    
+    color:black; 
 }
 
 .element:hover{
+    background: blue !important;
+    width: 60px;
+    height: 60px;
+}
+.elemetActive{
     width: 60px;
     height: 60px;
 }
